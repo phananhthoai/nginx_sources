@@ -20,7 +20,7 @@ RUN rm -f /etc/nginx/modules-enabled/50-mod-http-auth-pam.conf
 RUN rm -f /etc/nginx/modules-enabled/50-mod-http-echo.conf
 RUN rm -f /etc/nginx/modules-enabled/50-mod-http-geoip2.conf
 RUN rm -f /etc/nginx/modules-enabled/50-mod-http-headers-more-filter.conf
-RUn rm -f /etc/nginx/modules-enabled/50-mod-http-subs-filter.conf
+RUN rm -f /etc/nginx/modules-enabled/50-mod-http-subs-filter.conf
 RUN rm -f /etc/nginx/modules-enabled/50-mod-http-upstream-fair.conf
 RUN rm -f /etc/nginx/modules-enabled/70-mod-stream-geoip2.conf
 RUN ln -sf /dev/stdout /var/log/nginx/error.log
