@@ -1,15 +1,13 @@
 # syntax=nobidev/dockerfile
-#FROM ubuntu:24.04
-FROM nginx
- RUN <<-EOF
+FROM ubuntu:24.04
+RUN <<-EOF
    apt-get update 
    apt-get install -y curl dnsutils netcat-openbsd iputils-ping
 EOF
-    
+
 WORKDIR /etc/nginx
 RUN curl https://getmic.ro | bash
 RUN mv ./micro /usr/local/bin
-#COPY GeoIP.conf /etc/GeoIP.conf
 COPY conf.d conf.d
 COPY modules modules
 COPY modules-available modules-available
@@ -33,6 +31,6 @@ RUN chmod -R 700 /init.sh
 RUN rm -rf /etc/nginx/sites-enabled/default
 LABEL maintainer="Devops"
 EXPOSE 80
-ENTRYPOINT ["/init.sh"]
-#ENTRYPOINT ["sleep", "inf"]
-CMD [ "nginx", "-g", "daemon off;" ]
+
+ENTRYPOINT ["/init.sh", "nginx"]
+

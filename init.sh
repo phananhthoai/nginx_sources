@@ -199,7 +199,5 @@ if ! [ -z ${TRACE_PROXY} ]; then
     done
   done
 fi
-
 nginx -t
-
 exec ${@}
